@@ -29,8 +29,8 @@
   - Git & GitHub
   
 ### Other Project in this Training:
-- Project 1
-- Project 2
+- Project 1: <a href="https://github.com/mahmoudhaney/BrightStars" target="blank">BrightStars</a>
+- Project 2: <a href="https://github.com/mahmoudhaney/SunriseCompany" target="blank">Sunrise Company</a>
 
 ### Demo Video for this Project:
 
