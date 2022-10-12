@@ -1,0 +1,153 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+:root {
+    --main-color: #000016;
+    --secondary-color: #008000;
+}
+
+* {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.main-btn {
+    color: white;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: px;
+    border-radius: 30px;
+    transition: 0.5s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.main-btn:hover {
+    background-color: white;
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 8px 1px var(--secondary-color), -1px -1px 8px 1px var(--secondary-color);
+    transform: scale(1.02);
+}
+
+.delete-btn {
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.9375em 2.1875em;
+    letter-spacing: px;
+    border-radius: 30px;
+    transition: 0.5s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.delete-btn:hover {
+    background-color: white;
+    color: red;
+    box-shadow: 1px 1px 8px 1px red, -1px -1px 8px 1px red;
+    transform: scale(1.02);
+}
+
+h1 {
+    padding: 11px;
+    border-radius: 40px;
+    text-align: center;
+    background-color: white;
+    color: var(--main-color);
+    box-shadow: 0px 0px 10px 0px var(--main-color), 0px 0px 10px 0px var(--main-color);
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchForm label {
+    margin-bottom: 1px;
+}
+
+.myTable td,
+.myTable th{
+    text-align: center;
+}
+
+.myTable img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px
+}
+
+.stdForm {
+    padding: 15px;
+    box-shadow: 0px 0px 2px 0px var(--main-color);
+    border-radius: 10px;
+}
+
+.stdForm div {
+    margin-bottom: 5px;
+}
+
+.stdForm label {
+    margin-bottom: 3px;
+}
+
+.stdFormBtns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stdFormImg {
+    border-radius: 40px;
+    width: 400px;
+    height: 400px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    box-shadow: 0px 0px 7px 0px var(--main-color);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.detailsBtns {
+    display: flex;
+    flex-direction: column;
+}
+
+.SpecializationStds {
+    margin-top: 20px;
+}

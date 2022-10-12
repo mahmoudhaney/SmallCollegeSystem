@@ -1,0 +1,76 @@
+﻿@model Student
+
+<h1>
+    Create New Student
+</h1>
+
+<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
+    <form method="post" asp-controller="Students" asp-action="AddStudent" class="stdForm col-6" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            <label asp-for="FullName"></label>
+            <input type="text" asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Email"></label>
+            <input type="email" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ConfirmEmail"></label>
+            <input type="email" asp-for="ConfirmEmail" class="form-control" />
+            <span asp-validation-for="ConfirmEmail" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Password"></label>
+            <input type="password" asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ConfirmPassword"></label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="BirthDate"></label>
+            <input asp-for="BirthDate" class="form-control" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        @*Departments List*@
+        <div>
+            <label asp-for="SpecializationId"></label>
+            <select class="form-control" asp-for="SpecializationId" asp-items="@(new SelectList(ViewBag.AllSpecialization, "Id", "Name"))">
+                <option disabled selected>Select..</option>
+            </select>
+            <span asp-validation-for="SpecializationId" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ImageUrl"></label>
+            <input type="file" class="form-control" name="imageFile" id="imageFile" accept=".png,.jpg" onchange="AddImage()" />
+        </div>
+
+        <div class="stdFormBtns">
+            <button type="submit" class="main-btn col-5" style="border: none;">Add</button>
+            <a asp-controller="Students" asp-action="Index" class="main-btn col-5">Back To List</a>
+        </div>
+    </form>
+
+    <img src="/images/No_Image.png" alt="Your Photo" id="stdImage" class="stdFormImg col-4" />
+</div>
+
+
+@section Scripts{
+    <script>
+        function AddImage() {
+            document.getElementById("stdImage").src = window.URL.createObjectURL(document.getElementById("imageFile").files[0]);
+        }        
+    </script>
+}

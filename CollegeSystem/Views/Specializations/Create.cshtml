@@ -1,0 +1,26 @@
+﻿@model Specialization
+
+<h1>
+    Create New Specialization
+</h1>
+
+<div class="row" style="display: flex; justify-content: center; margin-top: 100px">
+    <form method="post" asp-controller="Specializations" asp-action="AddSpecialization" class="stdForm col-6">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="stdFormBtns">
+            <button type="submit" class="main-btn col-5" style="border: none;">Add</button>
+            <a asp-controller="Specializations" asp-action="Index" class="main-btn col-5">Back To List</a>
+        </div>
+    </form>
+</div>
+

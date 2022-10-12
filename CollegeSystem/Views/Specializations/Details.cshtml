@@ -1,0 +1,71 @@
+﻿@model Specialization
+
+<h1>
+    Specialization Details
+</h1>
+
+<div class="details row">
+    <dl>
+        <dt>@Html.DisplayNameFor(s => s.Id)</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>@Html.DisplayNameFor(s => s.Name)</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>@Html.DisplayNameFor(s => s.Description)</dt>
+        <dd>@Model.Description</dd>
+    </dl>
+</div>
+
+<div class="detailsBtns col-4">
+    <a asp-controller="Specializations" asp-action="Edit" asp-route-id=@Model?.Id class="main-btn">Edit</a>
+    <a asp-controller="Specializations" asp-action="Index" class="main-btn">Back To Specializations</a>
+</div>
+
+<div class="SpecializationStds">
+    <h1>Students in this Specialization</h1>
+    @if (Model.Students.Count() > 0)
+    {
+        // Representing the Student Data
+        <table class="table table-bordered table-striped table-hover myTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Full Name</th>
+                    <th><div>Email</div></th>
+                    <th><div>Image</div></th>
+                    <th><div>More...</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.Students)
+                {
+                    <tr>
+                        <td>@student.Id</td>
+                        <td>@student.FullName</td>
+                        <td>@student.Email</td>
+                        <td><img src="@student.ImageUrl" /></td>
+                        <td>
+                            <a asp-controller="Students" asp-action="Details" asp-route-id=@student.Id class="btn btn-success">
+                                <i class="bi bi-info-circle"></i>
+                            </a>
+                            <a asp-controller="Students" asp-action="Edit" asp-route-id=@student.Id class="btn btn-primary">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a asp-controller="Students" asp-action="Delete" asp-route-id=@student.Id class="btn btn-danger">
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1 style="border-radius: 40px; color: red;">
+            !! No Students yet in this Specialization !!
+        </h1>
+    }
+</div>
+

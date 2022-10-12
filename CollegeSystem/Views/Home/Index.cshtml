@@ -1,0 +1,14 @@
+﻿@* Home Page *@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>
+    Welcome To <b>XYZ</b> College
+</h1>
+
+<div style="display: flex; flex-direction: column; align-items: center; margin-top: 100px;">
+    <a asp-controller="Students" asp-action="Index" class="main-btn col-6 mb-5">Students</a>
+    <a asp-controller="Specializations" asp-action="Index" class="main-btn col-6 mb-5">Specializations</a>
+</div>

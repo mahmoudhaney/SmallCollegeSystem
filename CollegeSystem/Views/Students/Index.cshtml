@@ -1,0 +1,90 @@
+﻿@* Employees Page *@
+
+@model IEnumerable<Student>
+
+<h1>   
+    Our Students
+</h1>
+
+<a asp-controller="Students" asp-action="Create" class="main-btn mb-2 mt-2">Add New Student</a>
+
+
+
+@if (Model.Count() > 0)
+{
+    // For Searching and Sorting
+    <form method="get" asp-controller="Students" asp-action="Index" class="searchForm">
+        <div>
+            <label>Page Size</label>
+            <input type="number" name="pageSize" value="@ViewBag.pageSize" class="form-control" />
+        </div>
+        <div>
+            <label>Page No</label>
+            <input type="number" name="pageNumber" value="@ViewBag.pageNumber" class="form-control" />
+        </div>
+        <div>
+            <label>Search</label>
+            <input type="text" name="search" value="@ViewBag.CurrentSearch" class="form-control" />
+        </div>
+        <div>
+            <button type="submit" class="main-btn" style="margin-top: 0px; border: none;">GO</button>
+        </div>
+    </form>
+
+    // Representing the Student Data
+    <table class="table table-bordered table-striped table-hover myTable">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(e => e.Id)</th>
+                <th>
+                    <div style="width:50%; float:left; text-align:left;">
+                        @Html.DisplayNameFor(e => e.FullName)
+                    </div>
+                    <div style="width:50%; float:right; text-align:right;">
+                        <a asp-controller="Students" asp-action="Index" asp-route-sortType="FullName"
+                       asp-route-sortOrder="asc" style="text-decoration:none;" asp-route-search="@ViewBag.CurrentSearch"
+                       asp-route-pageSize="@ViewBag.pageSize" asp-route-pageNumber="@ViewBag.pageNumber">
+                            <i class="bi bi-arrow-up" style=" color: #008000;"></i>
+                        </a>
+                        <a asp-controller="Students" asp-action="Index" asp-route-sortType="FullName"
+                       asp-route-sortOrder="desc" style="text-decoration:none;" asp-route-search="@ViewBag.CurrentSearch"
+                       asp-route-pageSize="@ViewBag.pageSize" asp-route-pageNumber="@ViewBag.pageNumber">
+                            <i class="bi bi-arrow-down" style=" color: #008000;"></i>
+                        </a>
+                    </div>
+                </th>
+                <th><div>@Html.DisplayNameFor(e => e.Email)</div></th>
+                <th><div>@Html.DisplayNameFor(e => e.ImageUrl)</div></th>
+                <th><div>More...</div></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FullName</td>
+                    <td>@item.Email</td>
+                    <td><img src="@item.ImageUrl" /></td>
+                    <td>
+                        <a asp-controller="Students" asp-action="Details" asp-route-id=@item.Id class="btn btn-success">
+                            <i class="bi bi-info-circle"></i>
+                        </a>
+                        <a asp-controller="Students" asp-action="Edit" asp-route-id=@item.Id class="btn btn-primary">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-controller="Students" asp-action="Delete" asp-route-id=@item.Id class="btn btn-danger">
+                            <i class="bi bi-trash3"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1 style="border-radius: 40px; color: red;">
+        !! No Students Registered Yet !!
+    </h1>
+}

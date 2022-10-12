@@ -1,0 +1,44 @@
+﻿@model Student
+
+<h1>
+    Student Details
+</h1>
+
+<div class="details row">
+    <div class="col-6">
+        <dl class="row">
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Id)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Id)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.FullName)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.FullName)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Email)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Email)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.Password)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Password)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.BirthDate)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.BirthDate)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.CreatedAt)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.CreatedAt)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.LastUpdateAt)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.LastUpdateAt)</dd>
+
+            <dt class="col-4">@Html.DisplayNameFor(e => e.SpecializationId)</dt>
+            <dd class="col-8">@Html.DisplayFor(e => e.Specialization.Name)</dd>
+        </dl>
+    </div>
+    <div class="col-4">
+        <img src="@Model.ImageUrl" id="stdImage" class="stdFormImg" style="object-fit:contain" asp-append-version="true" />
+    </div>
+</div>
+
+<div class="detailsBtns col-4">
+    <a asp-controller="Students" asp-action="Edit" asp-route-id=@Model?.Id class="main-btn">Edit</a>
+    <a asp-controller="Students" asp-action="Index" class="main-btn">Back To Students</a>
+</div>
+

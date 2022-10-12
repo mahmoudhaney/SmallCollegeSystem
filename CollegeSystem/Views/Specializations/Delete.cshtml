@@ -1,0 +1,40 @@
+﻿@model Specialization
+
+<h1 style="color: red; box-shadow: 0px 0px 7px 0px red;">
+    Are you sure you want to delete this Specialization
+</h1>
+
+<div class="details row" style="box-shadow: 0px 0px 7px 0px red;">
+    <dl>
+        <dt class="col-1">@Html.DisplayNameFor(s => s.Id)</dt>
+        <dd class="col-11">@Model.Id</dd>
+
+        <dt class="col-1">@Html.DisplayNameFor(s => s.Name)</dt>
+        <dd class="col-11">@Model.Name</dd>
+
+        <dt class="col-1">@Html.DisplayNameFor(s => s.Description)</dt>
+        <dd class="col-11">@Model.Description</dd>
+    </dl>
+</div>
+
+
+
+
+
+<form method="post" asp-controller="Specializations" asp-action="DeleteSpecialization">
+    <input type="hidden" asp-for="Id" />
+    <div class="detailsBtns col-4">
+        <button type="submit" onclick="return ConfirmDelete()" style="border: none;" class="delete-btn">Delete</button>
+        <a asp-controller="Specializations" asp-action="Index" class="main-btn">Back To Specializations</a>
+    </div>
+    
+</form>
+
+@section Scripts{
+    <script>
+        function ConfirmDelete(){
+            let deleteConfirmed = confirm("Are you sure you want to delete it?");
+            return deleteConfirmed;
+        }
+    </script>
+}
